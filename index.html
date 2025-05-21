@@ -4,134 +4,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dev Zone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --blue: #00bfff;
-      --dark: #0c0c1c;
-      --light: #ffffff;
+      --primary: #00bfff;
+      --dark: #0f111a;
+      --light: #f1f1f1;
     }
-
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
-      scroll-behavior: smooth;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-
-    header {
+    body {
       background: var(--dark);
       color: var(--light);
+    }
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
+      background: #0b0c13;
+      position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
-
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--blue);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary);
     }
-
     nav a {
-      margin-left: 1rem;
+      margin: 0 1rem;
       text-decoration: none;
       color: var(--light);
-      transition: 0.3s;
+      font-weight: 300;
+      transition: color 0.3s ease;
     }
-
     nav a:hover {
-      color: var(--blue);
+      color: var(--primary);
     }
-
-    section {
-      padding: 100px 20px 50px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
     .hero {
+      padding: 8rem 2rem 4rem;
       text-align: center;
-      padding-top: 150px;
     }
-
     .hero h1 {
       font-size: 3rem;
-      color: var(--blue);
+      color: var(--primary);
     }
-
     .hero p {
       font-size: 1.2rem;
-      margin: 1rem 0;
+      margin-top: 1rem;
     }
-
-    .btn {
-      padding: 10px 20px;
-      background: var(--blue);
-      color: var(--dark);
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
     }
-
-    .btn:hover {
-      background: #0099cc;
-    }
-
-    .hidden {
-      display: none;
-    }
-
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-
     .member {
-      background: #111;
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--blue);
-      transition: 0.3s;
+      background: #1a1b26;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s;
     }
-
     .member:hover {
       transform: translateY(-5px);
     }
-
-    .projects p {
+    .projects p, .contact p {
       font-size: 1.1rem;
       margin-bottom: 1rem;
     }
-
-    .contact-icons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
     .contact-icons a {
-      color: var(--blue);
+      display: inline-block;
+      margin-right: 1rem;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
     }
-
     footer {
-      background: #050517;
-      color: var(--light);
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
+      padding: 2rem;
+      background: #090a12;
+      color: var(--light);
+      margin-top: 4rem;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -140,74 +107,63 @@
   <header>
     <div class="logo">Dev Zone</div>
     <nav>
-      <a href="#hero">Accueil</a>
-      <a href="#equipe" onclick="showSection('equipe')">Notre Équipe</a>
-      <a href="#projets" onclick="showSection('projets')">Projets</a>
-      <a href="#contact" onclick="showSection('contact')">Contact</a>
+      <a href="#" onclick="showSection('hero')">Accueil</a>
+      <a href="#" onclick="showSection('equipe')">Notre équipe</a>
+      <a href="#" onclick="showSection('projets')">Projets</a>
+      <a href="#" onclick="showSection('contact')">Contact</a>
     </nav>
   </header>
 
   <section id="hero" class="hero">
     <h1>Bienvenue chez Dev Zone</h1>
-    <p>L’innovation par des développeurs passionnés</p>
-    <button class="btn" onclick="showSection('equipe')">Découvrez notre équipe</button>
+    <p>L'équipe de développement qui bâtit avec passion et précision.</p>
   </section>
 
   <section id="equipe" class="hidden">
     <h2>Notre Équipe</h2>
-    <p>Les membres fondateurs de Dev Zone</p>
     <div class="team-grid">
       <div class="member">
         <h3>Head</h3>
         <p>Fondateur de Dev Zone</p>
-        <p>Leader stratégique et visionnaire de l’équipe.</p>
       </div>
       <div class="member">
         <h3>Kalyx</h3>
         <p>Développeur & Créatif</p>
-        <p>Toujours prêt à innover pour repousser les limites.</p>
       </div>
       <div class="member">
         <h3>Adam</h3>
         <p>Concepteur Front-End</p>
-        <p>Spécialiste des interfaces épurées et modernes.</p>
       </div>
       <div class="member">
         <h3>Shypro</h3>
         <p>Architecte Technique</p>
-        <p>Le cerveau du code robuste et structuré.</p>
       </div>
     </div>
   </section>
 
-  <section id="projets" class="hidden projects">
+  <section id="projets" class="hidden">
     <h2>Nos Projets</h2>
-    <p>Nous sommes actuellement disponibles pour des collaborations techniques, projets freelance ou partenariats.</p>
-    <p><strong>Contactez-nous pour travailler ensemble !</strong></p>
+    <p>Nous sommes en attente de missions et collaborations. Contactez-nous pour travailler ensemble !</p>
   </section>
 
-  <section id="contact" class="hidden">
-    <h2>Contactez-nous</h2>
-    <div class="contact-icons">
-      <p><strong>Discord :</strong> <a href="https://discord.gg/cbyEkqG3VY" target="_blank">Rejoindre</a></p>
-      <p><strong>Email :</strong> <a href="mailto:diallomaoudia13466@gmail.com">diallomaoudia13466@gmail.com</a></p>
-    </div>
-    <p>Une idée, un projet ou une mission pour Dev Zone ? Nous sommes prêts à collaborer avec passion et sérieux.</p>
+  <section id="contact" class="hidden contact">
+    <h2>Contact</h2>
+    <p><strong>Discord :</strong> <a href="https://discord.gg/cbyEkqG3VY" target="_blank">Rejoindre notre serveur</a></p>
+    <p><strong>Email :</strong> <a href="mailto:diallomaoudia13466@gmail.com">diallomaoudia13466@gmail.com</a></p>
+    <p>Vous avez un projet ? Parlons-en dès maintenant.</p>
   </section>
 
   <footer>
-    © 2025 Dev Zone — L’union des esprits créatifs du code.  
-    <br>Made with passion by la team DZ.
+    &copy; 2025 Dev Zone — Développé avec passion. Tous droits réservés.
   </footer>
 
   <script>
+    const sections = ['hero', 'equipe', 'projets', 'contact'];
     function showSection(id) {
-      const sections = ['equipe', 'projets', 'contact'];
-      sections.forEach(s => {
-        document.getElementById(s).classList.add('hidden');
+      sections.forEach(section => {
+        document.getElementById(section).classList.add('hidden');
       });
       document.getElementById(id).classList.remove('hidden');
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }
   </script>
 
